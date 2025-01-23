@@ -62,7 +62,7 @@ class BankingUI {
         System.out.println("1) Check balance");
         System.out.println("2) Deposit amount");
         System.out.println("3) Withdraw amount");
-        System.out.println("4) Transfer all balance to another account");
+        System.out.println("4) Transfer amount to another account");
         System.out.println("5) Get operation history as .txt");
         System.out.println("6) Exit");
         System.out.print("Please enter your choice: ");

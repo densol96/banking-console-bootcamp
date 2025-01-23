@@ -51,7 +51,7 @@ public class BankAccount implements IBankAccount {
             throw new Exception("Unable to deposit large values (>1000) of amount at a time. Please try again.");
         } else {
             balance += amount;
-            operationHistory.add(new Operation(true, "Deposit", balance));
+            operationHistory.add(new Operation(true, "Deposit", amount));
         }
     }
 
@@ -79,20 +79,20 @@ public class BankAccount implements IBankAccount {
     @Override
     public void transferToAnotherAccount(IBankAccount account, double amount) throws Exception {
         if (account == null) {
-            operationHistory.add(new Operation(false, "Balance transfer", balance));
+            operationHistory.add(new Operation(false, "Balance transfer", amount));
             throw new Exception("Invalid other account provided (null). Unable to transfer.");
 
         }
         if (amount > balance) {
-            operationHistory.add(new Operation(false, "Balance transfer", balance));
+            operationHistory.add(new Operation(false, "Balance transfer", amount));
             throw new Exception("Not enough funds. Unable to transfer.");
         }
         try {
             account.deposit(amount);
             balance -= amount;
-            operationHistory.add(new Operation(true, "Balance transfer", balance));
+            operationHistory.add(new Operation(true, "Balance transfer", amount));
         } catch (Exception e) {
-            operationHistory.add(new Operation(false, "Balance transfer", balance));
+            operationHistory.add(new Operation(false, "Balance transfer", amount));
             throw new Exception("Unable to transfer. " + e.getMessage());
         }
     }

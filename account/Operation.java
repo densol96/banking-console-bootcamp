@@ -14,7 +14,7 @@ public class Operation {
         this.id = ++count;
         this.isSuccess = isSuccess;
         this.name = name != null ? name : "UNKNOWN OPERATION";
-        this.amount = amount > 0 ? amount : 0;
+        this.amount = amount;
         this.dateTime = LocalDateTime.now();
     }
 
