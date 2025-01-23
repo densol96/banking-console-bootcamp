@@ -97,6 +97,7 @@ public class BankAccount implements IBankAccount {
         }
     }
 
+    @Override
     public void getTxtRecordOfOperations() throws Exception {
         try (FileWriter fileWriter = new FileWriter("output_txt_reports/bank_account_" + id + ".txt");
                 PrintWriter printWriter = new PrintWriter(fileWriter)) {
